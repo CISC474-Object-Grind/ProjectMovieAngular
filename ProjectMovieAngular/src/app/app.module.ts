@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { MoviesComponent } from './movies/movies.component';
 import { ShowsComponent } from './shows/shows.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ShowsComponent } from './shows/shows.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
