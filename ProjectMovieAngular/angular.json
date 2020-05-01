@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "ProjectMovieAngular"
+  "defaultProject": "ProjectMovieAngular",
+  "cli": {
+    "analytics": "cfa17a22-988d-468c-9916-017c553748b5"
+  }
 }
