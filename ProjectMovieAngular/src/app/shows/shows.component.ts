@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-shows',
   templateUrl: './shows.component.html',
-  styleUrls: ['./shows.component.css']
+  styleUrls: ['./shows.component.css'],
 })
 export class ShowsComponent implements OnInit {
 
@@ -11,5 +11,8 @@ export class ShowsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
+	"M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 }
