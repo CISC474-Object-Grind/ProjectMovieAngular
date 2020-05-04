@@ -1,18 +1,18 @@
 import express, { RequestHandler } from 'express';
-import { MoviesModel } from './moviesModel';
+import { ShowsModel } from './showsModel';
 import { Database } from '../common/MongoDB';
 import { Config } from '../config';
 //This is just an example of a second controller attached to the security module
 
-export class MoviesController {
-    static db: Database = new Database(Config.url, "movies");
+export class ShowsController {
+    static db: Database = new Database(Config.url, "shows");
     static projectsTable = 'projects';
 
     //getProjects
     //sends a json object with all projects in the system that match :year
     getProjects(req: express.Request, res: express.Response) {
         const semester = req.params.semester;
-        MoviesController.db.getRecords(MoviesController.projectsTable, { semester: semester })
+        ShowsController.db.getRecords(ShowsController.projectsTable, { semester: semester })
             .then((results) => res.send({ fn: 'getProjects', status: 'success', data: results }).end())
             .catch((reason) => res.status(500).send(reason).end());
 
@@ -22,16 +22,16 @@ export class MoviesController {
     getProject(req: express.Request, res: express.Response) {
         const semester = req.params.semester;
         const id = Database.stringToId(req.params.id);
-        MoviesController.db.getOneRecord(MoviesController.projectsTable, { _id: id, semester: semester })
+        ShowsController.db.getOneRecord(ShowsController.projectsTable, { _id: id, semester: semester })
             .then((results) => res.send({ fn: 'getProject', status: 'success', data: results }).end())
             .catch((reason) => res.status(500).send(reason).end());
     }
     //addProject
     //adds the project to the database
     addProject(req: express.Request, res: express.Response) {
-        const proj: MoviesModel = MoviesModel.fromObject(req.body);
+        const proj: ShowsModel = ShowsModel.fromObject(req.body);
 
-        MoviesController.db.addRecord(MoviesController.projectsTable, proj.toObject())
+        ShowsController.db.addRecord(ShowsController.projectsTable, proj.toObject())
             .then((result: boolean) => res.send({ fn: 'addProject', status: 'success' }).end())
             .catch((reason) => res.status(500).send(reason).end());
     }
@@ -42,7 +42,7 @@ export class MoviesController {
         const id = Database.stringToId(req.params.id);
         const data = req.body;
         delete data.authUser;
-        MoviesController.db.updateRecord(MoviesController.projectsTable, { _id: id }, { $set: req.body })
+        ShowsController.db.updateRecord(ShowsController.projectsTable, { _id: id }, { $set: req.body })
             .then((results) => results ? (res.send({ fn: 'updateProject', status: 'success' })) : (res.send({ fn: 'updateProject', status: 'failure', data: 'Not found' })).end())
             .catch(err => res.send({ fn: 'updateProject', status: 'failure', data: err }).end());
 
@@ -51,14 +51,14 @@ export class MoviesController {
     //deletes the project int he database with id :id
     deleteProject(req: express.Request, res: express.Response) {
         const id = Database.stringToId(req.params.id);
-        MoviesController.db.deleteRecord(MoviesController.projectsTable, { _id: id })
+        ShowsController.db.deleteRecord(ShowsController.projectsTable, { _id: id })
             .then((results) => results ? (res.send({ fn: 'deleteProject', status: 'success' })) : (res.send({ fn: 'deleteProject', status: 'failure', data: 'Not found' })).end())
             .catch((reason) => res.status(500).send(reason).end());
     }
     //getSemesters
     //returns all valid unique semesters in the database
     getSemesters(req: express.Request, res: express.Response) {
-        MoviesController.db.getRecords(MoviesController.projectsTable)
+        ShowsController.db.getRecords(ShowsController.projectsTable)
             .then(results => {
                 //extracts just the semester
                 let semesters = results.map((x: any) => x.semester);
@@ -73,7 +73,7 @@ export class MoviesController {
     //returns all valid unique projectNumbers for a given semesters in the database
     getProjectNumbers(req: express.Request, res: express.Response) {
         const semester = req.params.semester;
-        MoviesController.db.getRecords(MoviesController.projectsTable,{semester:semester})
+        ShowsController.db.getRecords(ShowsController.projectsTable,{semester:semester})
             .then(results => {
                 //extracts just the projectNumber
                 let projects = results.map((x: any) => x.projectNumber);

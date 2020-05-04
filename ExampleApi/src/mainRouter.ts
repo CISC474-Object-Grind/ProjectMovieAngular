@@ -3,6 +3,9 @@ import { AppRouter } from './common/AppRouter';
 import { SecurityRouter } from './security/securityrouter';
 import { ProjectsRouter } from './projects/projectsRouter';
 import { MoviesRouter } from './movies/moviesRouter';
+import { ShowsRouter } from './shows/showsRouter';
+
+
 //root router for the API
 
 export class MainRouter extends AppRouter{
@@ -13,6 +16,7 @@ export class MainRouter extends AppRouter{
         this.addRouter('/security',new SecurityRouter());        
 		this.addRouter('/projects',new ProjectsRouter());
 		this.addRouter('/movies', new MoviesRouter());
+		this.addRouter('/shows', new ShowsRouter());
     }
     
 }
