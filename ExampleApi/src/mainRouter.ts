@@ -5,7 +5,6 @@ import { ProjectsRouter } from './projects/projectsRouter';
 import { MoviesRouter } from './movies/moviesRouter';
 import { ShowsRouter } from './shows/showsRouter';
 
-
 //root router for the API
 
 export class MainRouter extends AppRouter{

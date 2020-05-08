@@ -9,12 +9,12 @@ export class MoviesRouter extends AppRouter{
 
     //sets up the routes within this module shows an example of a route that requires authorization, and one that does not
     setupRoutes(): void {      
-        this.expressRouter.get('/semesters',MoviesRouter.movieController.getSemesters);
-        this.expressRouter.get('/projectNumbers/:semester',MoviesRouter.movieController.getProjectNumbers);
-        this.expressRouter.get('/:semester',MoviesRouter.movieController.getProjects);
-        this.expressRouter.get('/:semester/:id',MoviesRouter.movieController.getProject);
-        this.expressRouter.post('/',[SecurityMiddleware.RequireAuth],MoviesRouter.movieController.addProject);
-        this.expressRouter.put('/:id',[SecurityMiddleware.RequireAuth],MoviesRouter.movieController.updateProject);
-        this.expressRouter.delete('/:id',[SecurityMiddleware.RequireAuth],MoviesRouter.movieController.deleteProject);
+        this.expressRouter.get('/IDs',MoviesRouter.movieController.getID);
+        // this.expressRouter.get('/projectNumbers/:semester',MoviesRouter.movieController.getProjectNumbers);
+        this.expressRouter.get('/:movies',MoviesRouter.movieController.getMovies);
+        this.expressRouter.get('/:name/:id',MoviesRouter.movieController.getMovie);
+        this.expressRouter.post('/',[SecurityMiddleware.RequireAuth],MoviesRouter.movieController.addMovie);
+        this.expressRouter.put('/:id',[SecurityMiddleware.RequireAuth],MoviesRouter.movieController.updateMovie);
+        this.expressRouter.delete('/:id',[SecurityMiddleware.RequireAuth],MoviesRouter.movieController.deleteMovie);
     }    
 }
