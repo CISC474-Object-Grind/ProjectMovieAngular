@@ -1,23 +1,22 @@
 export class MoviesModel{
     id='';
-    name='';
+    title='';
     description?='';
-    groupid='';
-    groupMembers:string[]=[];
-    semester='';
-    projectNumber=0;
+    genre='';
+    // groupMembers:string[]=[];
+    // projectNumber=0;
 
     static fromObject(object:any):MoviesModel{
         const p:MoviesModel=new MoviesModel();
-        p.name=object.name;
+        p.title=object.title;
         p.description=object.description;
-        p.groupid=object.groupId;
-        p.groupMembers=object.groupMembers;
-        p.semester=object.semester
-        p.projectNumber=object.projectNumber;
+        p.genre=object.genre;
+        // p.groupMembers=object.groupMembers;
+        // p.projectNumber=object.projectNumber;
         return p;
     }
     toObject():any{
-        return {name:this.name,description:this.description,groupid:this.groupid,groupMembers:this.groupMembers,semester:this.semester,projectNumber:this.projectNumber};
+		return {title:this.title,description:this.description,groupid:this.genre};
+        // return {name:this.name,description:this.description,groupid:this.genre,groupMembers:this.groupMembers,projectNumber:this.projectNumber};
     }
 }
