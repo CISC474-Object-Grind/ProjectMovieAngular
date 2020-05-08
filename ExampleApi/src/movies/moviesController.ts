@@ -6,83 +6,85 @@ import { Config } from '../config';
 
 export class MoviesController {
     static db: Database = new Database(Config.url, "movies");
-    static projectsTable = 'projects';
+    static moviesTable = 'movies';
 
-    //getProjects
+    //getMovies
     //sends a json object with all projects in the system that match :year
-    getProjects(req: express.Request, res: express.Response) {
-        const semester = req.params.semester;
-        MoviesController.db.getRecords(MoviesController.projectsTable, { semester: semester })
-            .then((results) => res.send({ fn: 'getProjects', status: 'success', data: results }).end())
+    getMovies(req: express.Request, res: express.Response) {
+        const name = req.params.name;
+        MoviesController.db.getRecords(MoviesController.moviesTable, { name: name })
+            .then((results) => res.send({ fn: 'getMovies', status: 'success', data: results }).end())
             .catch((reason) => res.status(500).send(reason).end());
-
-    }
-    //getProject
-    //sends the specific project as JSON with id=:id
-    getProject(req: express.Request, res: express.Response) {
-        const semester = req.params.semester;
+	}
+	
+    //getMovie
+    //sends the specific movie as JSON with id=:id
+    getMovie(req: express.Request, res: express.Response) {
+		const name = req.params.name;
         const id = Database.stringToId(req.params.id);
-        MoviesController.db.getOneRecord(MoviesController.projectsTable, { _id: id, semester: semester })
-            .then((results) => res.send({ fn: 'getProject', status: 'success', data: results }).end())
+        MoviesController.db.getOneRecord(MoviesController.moviesTable, { _id: id, name: name })
+            .then((results) => res.send({ fn: 'getMovie', status: 'success', data: results }).end())
+            .catch((reason) => res.status(500).send(reason).end());
+	}
+	
+    //addMovie
+    //adds the movie to the database
+    addMovie(req: express.Request, res: express.Response) {
+        const movie: MoviesModel = MoviesModel.fromObject(req.body);
+
+        MoviesController.db.addRecord(MoviesController.moviesTable, movie.toObject())
+            .then((result: boolean) => res.send({ fn: 'addMovie', status: 'success' }).end())
             .catch((reason) => res.status(500).send(reason).end());
     }
-    //addProject
-    //adds the project to the database
-    addProject(req: express.Request, res: express.Response) {
-        const proj: MoviesModel = MoviesModel.fromObject(req.body);
 
-        MoviesController.db.addRecord(MoviesController.projectsTable, proj.toObject())
-            .then((result: boolean) => res.send({ fn: 'addProject', status: 'success' }).end())
-            .catch((reason) => res.status(500).send(reason).end());
-    }
-
-    //updateProject
-    //updates the project in the database with id :id
-    updateProject(req: express.Request, res: express.Response) {
+    //updateMovie
+    //updates the movie in the database with id :id
+    updateMovie(req: express.Request, res: express.Response) {
         const id = Database.stringToId(req.params.id);
         const data = req.body;
         delete data.authUser;
-        MoviesController.db.updateRecord(MoviesController.projectsTable, { _id: id }, { $set: req.body })
-            .then((results) => results ? (res.send({ fn: 'updateProject', status: 'success' })) : (res.send({ fn: 'updateProject', status: 'failure', data: 'Not found' })).end())
-            .catch(err => res.send({ fn: 'updateProject', status: 'failure', data: err }).end());
+        MoviesController.db.updateRecord(MoviesController.moviesTable, { _id: id }, { $set: req.body })
+            .then((results) => results ? (res.send({ fn: 'updateMovie', status: 'success' })) : (res.send({ fn: 'updateMovie', status: 'failure', data: 'Not found' })).end())
+            .catch(err => res.send({ fn: 'updateMovie', status: 'failure', data: err }).end());
 
     }
-    //deleteProject
-    //deletes the project int he database with id :id
-    deleteProject(req: express.Request, res: express.Response) {
+    //deleteMovie
+    //deletes the movie in the database with id :id
+    deleteMovie(req: express.Request, res: express.Response) {
         const id = Database.stringToId(req.params.id);
-        MoviesController.db.deleteRecord(MoviesController.projectsTable, { _id: id })
-            .then((results) => results ? (res.send({ fn: 'deleteProject', status: 'success' })) : (res.send({ fn: 'deleteProject', status: 'failure', data: 'Not found' })).end())
+        MoviesController.db.deleteRecord(MoviesController.moviesTable, { _id: id })
+            .then((results) => results ? (res.send({ fn: 'deleteMovie', status: 'success' })) : (res.send({ fn: 'deleteMovie', status: 'failure', data: 'Not found' })).end())
             .catch((reason) => res.status(500).send(reason).end());
-    }
-    //getSemesters
-    //returns all valid unique semesters in the database
-    getSemesters(req: express.Request, res: express.Response) {
-        MoviesController.db.getRecords(MoviesController.projectsTable)
+	}
+	
+    //getIDs
+    //returns all valid unique IDs in the database
+    getID(req: express.Request, res: express.Response) {
+        MoviesController.db.getRecords(MoviesController.moviesTable)
             .then(results => {
                 //extracts just the semester
-                let semesters = results.map((x: any) => x.semester);
+                let id = results.map((x: any) => x.id);
                 //removes duplciates
-                semesters = semesters.filter((value: string, index: number, array: any[]) =>
+                id = id.filter((value: string, index: number, array: any[]) =>
                     !array.filter((v, i) => value === v && i < index).length);
-                res.send({ fn: 'deleteProject', status: 'success', data: { semesters: semesters } })
+                res.send({ fn: 'deleteMovie', status: 'success', data: { id: id } })
             })
             .catch((reason) => res.status(500).send(reason).end());
     }
-    //getProjectNumbers
-    //returns all valid unique projectNumbers for a given semesters in the database
-    getProjectNumbers(req: express.Request, res: express.Response) {
-        const semester = req.params.semester;
-        MoviesController.db.getRecords(MoviesController.projectsTable,{semester:semester})
-            .then(results => {
-                //extracts just the projectNumber
-                let projects = results.map((x: any) => x.projectNumber);
-                //removes duplciates
-                projects = projects.filter((value: number, index: number, array: any[]) =>
-                    !array.filter((v, i) => value === v && i < index).length);
-                res.send({ fn: 'deleteProject', status: 'success', data: { projectNumbers:projects.sort()} });
-            })
-            .catch((reason) => res.status(500).send(reason).end());
-    }
+    // //getProjectNumbers
+    // //returns all valid unique projectNumbers for a given semesters in the database
+    // get(req: express.Request, res: express.Response) {
+    //     const semester = req.params.semester;
+    //     MoviesController.db.getRecords(MoviesController.moviesTable,{semester:semester})
+    //         .then(results => {
+    //             //extracts just the projectNumber
+    //             let projects = results.map((x: any) => x.projectNumber);
+    //             //removes duplciates
+    //             projects = projects.filter((value: number, index: number, array: any[]) =>
+    //                 !array.filter((v, i) => value === v && i < index).length);
+    //             res.send({ fn: 'deleteProject', status: 'success', data: { projectNumbers:projects.sort()} });
+    //         })
+    //         .catch((reason) => res.status(500).send(reason).end());
+    // }
 
 }
