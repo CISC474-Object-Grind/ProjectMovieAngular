@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -8,5 +9,5 @@ import { HttpClient } from '@angular/common/http';
 export class OmdbServiceService {
 	private path = "http://localhost:3000/api/proxy/"
 	constructor(private http: HttpClient) { }
-
+	
 }
