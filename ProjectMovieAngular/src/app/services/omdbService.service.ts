@@ -10,12 +10,12 @@ export class OmdbServiceService {
 	private path = "http://localhost:3000/api/proxy/"
 	constructor(private http: HttpClient) { }
 	
-	getMovie(){
-		return (this.path+"movieName")
+	getMovie(): Observable<any> {
+		return this.http.get(this.path+'movieName');
 	}
 
-	getShow(){
-		return (this.path+"showName")
+	getShow(): Observable<any>{
+		return this.http.get(this.path+'showName');
 	}
 
 }
