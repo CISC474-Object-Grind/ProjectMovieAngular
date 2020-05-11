@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { AutocompleteTitleService } from './autocompleteTitle.service';
 
 describe('AutocompleteTitleService', () => {
