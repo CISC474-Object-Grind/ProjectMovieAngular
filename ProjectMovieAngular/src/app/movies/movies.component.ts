@@ -7,15 +7,18 @@ import { OmdbServiceService } from '../services/omdbService.service';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  
-  constructor(private OmdbService:OmdbServiceService) {
-   }
+  movies = [];
+  moviesToGet = ['avengers','parasite','moana']
+  constructor(private OmdbService:OmdbServiceService) { }
 
   ngOnInit(): void {
+	this.moviesToGet.forEach(movie => {
+		this.OmdbService.getMovie(movie).subscribe(data => console.log(data))
+	});
 	
+	// this.OmdbService.getMovie('inception').subscribe(data => console.log(data))
   }
   
-
   alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
   
