@@ -8,12 +8,13 @@ import { OmdbServiceService } from '../services/omdbService.service';
 })
 export class MoviesComponent implements OnInit {
   movies = [];
-  moviesToGet = ['avengers','parasite','moana']
+  moviesToGet = ['avengers','parasite','moana','frozen 2','aquaman','wonder woman']
   constructor(private OmdbService:OmdbServiceService) { }
 
   ngOnInit(): void {
 	this.moviesToGet.forEach(movie => {
-		this.OmdbService.getMovie(movie).subscribe(data => console.log(data))
+		this.OmdbService.getMovie(movie).subscribe(data => console.log(data)
+		)
 	});
 	
 	// this.OmdbService.getMovie('inception').subscribe(data => console.log(data))

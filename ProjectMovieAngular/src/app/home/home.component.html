@@ -1,45 +1,25 @@
 <h2>Our Top Picks This Week!</h2>
 <ngb-carousel>
-	<ng-template ngbSlide>
+	<ng-template *ngFor="let movie of homeMovies" ngbSlide>
 		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
+			<img src= {{movie.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/wonderwoman.jpg" alt="wonderwoman">
+			<img src= {{movie.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/parasite.jpg" alt="aquaman">
+			<img src= {{movie.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/jumanjiNextLevel.jpg" alt="jumanjiNextLevel">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
+			<img src={{movie.image}} alt={{movie.title}}>
 		</div>
 	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/zombieland.jpg" alt="aquaman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
+</ngb-carousel>
+
+<ngb-carousel>
+	<ng-template *ngFor="let movie of homeMovies; index as i" ngbSlide>
+		<div >
+			<img src={{movie.image}} alt={{movie.title}}>
 		</div>
 	</ng-template>
 </ngb-carousel>
