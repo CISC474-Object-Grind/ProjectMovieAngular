@@ -6,7 +6,7 @@ export class HomeController {
 	getFromOtherApi(req: express.Request, res: express.Response) {
 		const options = {
 			method: 'GET',
-			url: 'https://imdb8.p.rapidapi.com/title/auto-complete',
+			url:'https://imdb8.p.rapidapi.com/title/auto-complete',
 			qs: { q: req.params.searchString },
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
