@@ -13,7 +13,7 @@ var ProxyController = /** @class */ (function () {
             url: 'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/' + req.params.searchString,
             headers: {
                 'x-rapidapi-host': 'imdb-internet-movie-database-unofficial.p.rapidapi.com',
-                'x-rapidapi-key': 'ae98a62e' //change to your key
+                'x-rapidapi-key': '4cb150e960msh1c6a8e1cccf054ap137887jsn3cbf9acb58bf' //change to your key
             }
         };
         request_1.default(options, function (error, response, result) {
