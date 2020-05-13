@@ -2,13 +2,13 @@
 <ngb-carousel>
 	<ng-template *ngFor="let movie of homeMovies" ngbSlide>
 		<div class="picsum-img-wrapper">
-			<img src= {{movie.image}} alt={{movie.title}}>
+			<img src={{movie.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
-			<img src= {{movie.image}} alt={{movie.title}}>
+			<img src={{movie.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
-			<img src= {{movie.image}} alt={{movie.title}}>
+			<img src={{movie.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
 			<img src={{movie.image}} alt={{movie.title}}>
@@ -16,10 +16,13 @@
 	</ng-template>
 </ngb-carousel>
 
-<ngb-carousel>
-	<ng-template *ngFor="let movie of homeMovies; index as i" ngbSlide>
-		<div >
-			<img src={{movie.image}} alt={{movie.title}}>
-		</div>
-	</ng-template>
-</ngb-carousel>
+
+<h3> Recommended Shows</h3>
+<div *ngFor="let show of shows" class="row">
+	<div class="col-6 col-sm-4">
+		<p>Title: {{show.l}} <br> Rank: {{show.rank}}</p>
+	</div>
+	<div class="col-6 col-sm-4">
+		<img src={{show.i.imageUrl}} alt={{show.l}}>
+	</div>
+</div>
