@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
 		"to all the boys I've loved before", "zombieland"]
 	homeMovies = [];
 	
+	recommendedShows = ["the office", "outer banks","upload","rick and morty"]
+	shows = [];
+
 	mobile: boolean;
 
 	constructor(private OmdbService: OmdbServiceService, private AutocompleteTitleService: AutocompleteTitleService) { 
@@ -39,7 +42,14 @@ export class HomeComponent implements OnInit {
 			// this.OmdbService.getMovie(movie).subscribe(data => console.log(data)
 			// )
 		});
-		// console.log(this.homeMovies)
+		console.log(this.homeMovies)
 
+		this.recommendedShows.forEach(show => {
+			// this.AutocompleteTitleService.getShow(show).subscribe(data =>
+			// 	console.log(data.d[0]));
+			this.AutocompleteTitleService.getShow(show).subscribe(data =>
+				this.shows.push(data.d[0]));
+		});
+		console.log(this.shows);
 	}
 }

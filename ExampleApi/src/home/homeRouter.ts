@@ -10,5 +10,6 @@ export class HomeRouter extends AppRouter {
 	//sets up the routes within this module shows an example of a route that requires authorization, and one that does not
 	setupRoutes(): void {
 		this.expressRouter.get('/:searchString', HomeRouter.homeController.getFromOtherApi);
+		this.expressRouter.get('/:find', HomeRouter.homeController.findShow);
 	}
 }

@@ -12,10 +12,10 @@ export class MoviesComponent implements OnInit {
   constructor(private OmdbService:OmdbServiceService) { }
 
   ngOnInit(): void {
-	this.moviesToGet.forEach(movie => {
-		this.OmdbService.getMovie(movie).subscribe(data => console.log(data)
-		)
-	});
+	// this.moviesToGet.forEach(movie => {
+	// 	this.OmdbService.getMovie(movie).subscribe(data => console.log(data)
+	// 	)
+	// });
 	
 	// this.OmdbService.getMovie('inception').subscribe(data => console.log(data))
   }
