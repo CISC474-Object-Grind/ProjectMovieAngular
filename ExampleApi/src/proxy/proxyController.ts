@@ -5,10 +5,10 @@ export class ProxyController {
     getFromOtherApi(req: express.Request, res: express.Response){
             const options={
                 method: 'GET',
-                url: 'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/'+req.params.searchString,
+                url: 'http://www.omdbapi.com/?i=tt3896198&apikey=ae98a62e'+req.params.searchString,
                 headers: {
-				  'x-rapidapi-host': 'imdb-internet-movie-database-unofficial.p.rapidapi.com',
-                  'x-rapidapi-key': '4cb150e960msh1c6a8e1cccf054ap137887jsn3cbf9acb58bf' //change to your key
+				  'x-rapidapi-host': 'http://www.omdbapi.com/?i=tt3896198&',
+                  'x-rapidapi-key': 'ae98a62e' //change to your key
                 }   
             };
             request(options,function(error,response,result){

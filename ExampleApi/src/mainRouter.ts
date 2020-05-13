@@ -18,6 +18,6 @@ export class MainRouter extends AppRouter{
 		this.addRouter('/projects',new ProjectsRouter());
 		this.addRouter('/movies', new MoviesRouter());
 		this.addRouter('/shows', new ShowsRouter());
-		this.addRouter('/imdb', new ProxyRouter());
+		this.addRouter('/omdb', new ProxyRouter());
     }
 }
