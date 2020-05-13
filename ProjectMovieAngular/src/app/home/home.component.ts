@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { OmdbServiceService } from '../services/omdbService.service';
 import { AutocompleteTitleService } from '../services/autocompleteTitle.service'
 
+class MoviePage{
+	items: any[]=[];
+}
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -11,25 +15,26 @@ import { AutocompleteTitleService } from '../services/autocompleteTitle.service'
 export class HomeComponent implements OnInit {
 	moviesToGet = ["avengers endgame", "parasite", "moana", "frozen 2", "aquaman", "wonder woman",
 		"to all the boys I've loved before", "zombieland"]
-	homeMovies = [];
+	homeMovies: MoviePage[] = [new MoviePage()];
 	
+	addMovie(movie:any){
+		const size = this.homeMovies.length;
+		if(this.homeMovies[size-1].items.length > 3){
+			const mp=new MoviePage();
+			mp.items.push(movie);
+			this.homeMovies.push(mp);
+		} else {
+			this.homeMovies[size-1].items.push(movie);
+		}
+	}
+
 	recommendedShows = ["the office", "outer banks","upload","rick and morty"]
 	shows = [];
 
 	mobile: boolean;
 
 	constructor(private OmdbService: OmdbServiceService, private AutocompleteTitleService: AutocompleteTitleService) { 
-		// var j = -1;
-		// for (var i = 0; i < this.moviesToGet.length; i++) {
-		// 	if (i % 3 == 0) {
-		// 		j++;
-		// 		this.homeMovies[j] = [];
-		// 		this.homeMovies[j].push(this.moviesToGet[i]);
-		// 	}
-		// 	else {
-		// 		this.homeMovies[j].push(this.moviesToGet[i]);
-		// 	}
-		// }
+	
 	}
 
 	ngOnInit(): void {
@@ -38,11 +43,8 @@ export class HomeComponent implements OnInit {
 		}
 
 		this.moviesToGet.forEach(movie => {
-			this.OmdbService.getMovie(movie).subscribe(res => this.homeMovies.push(res.titles[0]));
-			// this.OmdbService.getMovie(movie).subscribe(data => console.log(data)
-			// )
+			this.OmdbService.getMovie(movie).subscribe(res => {console.log(res);this.addMovie(res.titles[0])});
 		});
-		console.log(this.homeMovies)
 
 		this.recommendedShows.forEach(show => {
 			// this.AutocompleteTitleService.getShow(show).subscribe(data =>
@@ -51,5 +53,18 @@ export class HomeComponent implements OnInit {
 				this.shows.push(data.d[0]));
 		});
 		console.log(this.shows);
+
+		// var j = -1;
+		// for (var i = 0; i < this.moviesToGet.length; i++) {
+		// 	if (i % 3 == 0) {
+		// 		j++;
+		// 		this.homeMovies[j]=new MoviePage();
+		// 		this.homeMovies[j].items.push(this.moviesToGet[i]);
+		// 	}
+		// 	else {
+		// 		this.homeMovies[j].items.push(this.moviesToGet[i]);
+		// 	}
+		// }
+		// console.log(this.homeMovies)
 	}
 }
