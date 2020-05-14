@@ -1,19 +1,23 @@
 <h2>Our Top Picks This Week!</h2>
 <ngb-carousel>
 	<ng-template *ngFor="let movie of homeMovies" ngbSlide>
-		<div  *ngFor="let m of movie.items" class="picsum-img-wrapper">
+		<div *ngFor="let m of movie.items" class="picsum-img-wrapper">
 			<!-- <img src={{m.titles[0].image}} alt={{m.titles[0].title}}> -->
 			<img src={{m.image}} alt={{m.title}}>
 		</div>
 	</ng-template>
 </ngb-carousel>
 
-<!-- <h3> Recommended Shows</h3>
-<div *ngFor="let show of shows" class="row">
-	<div class="col-6 col-sm-4">
-		<p>Title: {{show.l}} <br> Rank: {{show.rank}}</p>
+<h3> Recommended Shows</h3>
+<div *ngFor="let show of recommendedShows" class="row inline-block">
+	<div *ngFor="let s of show.items" class="row inline-block">
+		<div class="col col-md-6">
+			<img class="showImage" routerLinkActive="router-link-active" src={{s.i.imageUrl}} alt={{s.l}}>
+		</div>
+		<div class="col col-md-6">
+			<p class="showDescription" >Title: {{s.l}} <br> Rank: {{s.rank}} <br> Cast: {{s.s}}</p>
+		</div>
+		<div class="col w-100"></div>
 	</div>
-	<div class="col-6 col-sm-4">
-		<img src={{show.i.imageUrl}} alt={{show.l}}>
-	</div>
-</div> -->
+	<br><br>
+</div>

@@ -6,6 +6,10 @@ class MoviePage{
 	items: any[]=[];
 }
 
+class ShowPage{
+	items: any[]=[];
+}
+
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
@@ -16,6 +20,7 @@ export class HomeComponent implements OnInit {
 	moviesToGet = ["avengers endgame", "parasite", "moana", "frozen 2", "aquaman", "wonder woman",
 		"to all the boys I've loved before", "zombieland"]
 	homeMovies: MoviePage[] = [new MoviePage()];
+	recommendedShows: ShowPage[] = [new ShowPage()];
 	
 	addMovie(movie:any){
 		const size = this.homeMovies.length;
@@ -28,9 +33,20 @@ export class HomeComponent implements OnInit {
 		}
 	}
 
-	recommendedShows = ["the office", "outer banks","upload","rick and morty"]
-	shows = [];
+	addShow(show:any){
+		const size = this.recommendedShows.length;
+		if(this.recommendedShows[size-1].items.length > 1){
+			const sp=new ShowPage();
+			sp.items.push(show);
+			this.recommendedShows.push(sp);
+		} else {
+			this.recommendedShows[size-1].items.push(show);
+		}
+	}
 
+	showsToGet = ["the office", "outer banks","upload","rick and morty", 
+	"grey's anatomy","legacies", "new girl", "west world","gossip girl","lucifer"]
+	
 	mobile: boolean;
 
 	constructor(private OmdbService: OmdbServiceService, private AutocompleteTitleService: AutocompleteTitleService) { 
@@ -43,28 +59,20 @@ export class HomeComponent implements OnInit {
 		}
 
 		this.moviesToGet.forEach(movie => {
-			this.OmdbService.getMovie(movie).subscribe(res => {console.log(res);this.addMovie(res.titles[0])});
+			this.OmdbService.getMovie(movie).subscribe(res => {
+				// console.log(res);
+				this.addMovie(res.titles[0])});
 		});
 
-		this.recommendedShows.forEach(show => {
+		this.showsToGet.forEach(show => {
 			// this.AutocompleteTitleService.getShow(show).subscribe(data =>
 			// 	console.log(data.d[0]));
-			this.AutocompleteTitleService.getShow(show).subscribe(data =>
-				this.shows.push(data.d[0]));
+			this.AutocompleteTitleService.getShow(show).subscribe(data => {
+				console.log(data);
+				this.addShow(data.d[0])});
+			// this.AutocompleteTitleService.getShow(show).subscribe(data =>
+			// 	this.shows.push(data.d[0]));
 		});
-		console.log(this.shows);
-
-		// var j = -1;
-		// for (var i = 0; i < this.moviesToGet.length; i++) {
-		// 	if (i % 3 == 0) {
-		// 		j++;
-		// 		this.homeMovies[j]=new MoviePage();
-		// 		this.homeMovies[j].items.push(this.moviesToGet[i]);
-		// 	}
-		// 	else {
-		// 		this.homeMovies[j].items.push(this.moviesToGet[i]);
-		// 	}
-		// }
-		// console.log(this.homeMovies)
+		console.log(this.recommendedShows)
 	}
 }
