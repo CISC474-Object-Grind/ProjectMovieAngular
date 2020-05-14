@@ -17,3 +17,8 @@ ngb-carousel{
 	text-align: center !important;
 	background-color:black;
 }
+
+.showImage {
+	width: 170px;
+	height: 260px;
+}
