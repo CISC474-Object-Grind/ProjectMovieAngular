@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
 	addShow(show:any){
 		const size = this.recommendedShows.length;
-		if(this.recommendedShows[size-1].items.length > 1){
+		if(this.recommendedShows[size-1].items.length > 3){
 			const sp=new ShowPage();
 			sp.items.push(show);
 			this.recommendedShows.push(sp);
