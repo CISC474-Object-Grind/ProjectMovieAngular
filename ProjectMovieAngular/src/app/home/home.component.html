@@ -7,17 +7,28 @@
 		</div>
 	</ng-template>
 </ngb-carousel>
-
+<br>
 <h3> Recommended Shows</h3>
-<div *ngFor="let show of recommendedShows" class="row inline-block">
-	<div *ngFor="let s of show.items" class="row inline-block">
-		<div class="col col-md-6">
-			<img class="showImage" routerLinkActive="router-link-active" src={{s.i.imageUrl}} alt={{s.l}}>
+<!-- <div *ngFor="let show of recommendedShows" class="row row-no-gutters">
+	<div *ngFor="let s of show.items" class="row row-no-gutters">
+		<div class="col-sm-6 col-md-6">
+			<img class="showImage" src={{s.i.imageUrl}} alt={{s.l}}>
+			</div>
+		<div class="col-sm-6 col-md-6">
+			<p class="showDescription">Title: {{s.l}} <br>Rank: {{s.rank}}</p>
 		</div>
-		<div class="col col-md-6">
-			<p class="showDescription" >Title: {{s.l}} <br> Rank: {{s.rank}} <br> Cast: {{s.s}}</p>
+	</div>
+</div> -->
+<div *ngFor="let show of recommendedShows" class="card-deck justify-content-center">
+	<div *ngFor="let s of show.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{s.i.imageUrl}} alt={{s.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{s.l}}</h5>
+			<p class="card-text">Rank: {{s.rank}}<br> Cast: {{s.s}}</p>
 		</div>
-		<div class="col w-100"></div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated 3 mins ago</small>
+		</div>
 	</div>
 	<br><br>
 </div>
