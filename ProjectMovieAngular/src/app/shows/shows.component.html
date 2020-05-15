@@ -1,59 +1,19 @@
-<h2>Shows to Watch</h2>
+<h2>Top Shows To Watch This Week!</h2>
 <ngb-carousel>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/wonderwoman.jpg" alt="wonderwoman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/aquaman.jpg" alt="aquaman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/jumanjiNextLevel.jpg" alt="jumanjiNextLevel">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/aquaman.jpg" alt="aquaman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
+	<ng-template *ngFor="let movie of showsTopShows" ngbSlide>
+		<div *ngFor="let m of movie.items" class="picsum-img-wrapper">
+			<!-- <img src={{m.titles[0].image}} alt={{m.titles[0].title}}> -->
+			<img src={{m.image}} alt={{m.title}}>
 		</div>
 	</ng-template>
 </ngb-carousel>
+<br>
 <br><br>
-<h2>All Shows </h2>
+<h2>Shows By Genre </h2>
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-	<ngb-panel title="{{item}}" *ngFor="let item of alphabet">
+	<ngb-panel title="{{item}}" *ngFor="let item of genres">
 	  <ng-template ngbPanelContent>
-		Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-		aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-		sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-		craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-		occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-		labore sustainable VHS.
+		test
 	  </ng-template>
 	</ngb-panel>
   </ngb-accordion>
