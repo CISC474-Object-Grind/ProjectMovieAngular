@@ -2,3 +2,8 @@
 body {
 	background-color: #d3d3d3;
 }
+footer{
+	background-color: black;
+	text-align: center;
+	padding: 15px;
+}
