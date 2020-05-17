@@ -13,9 +13,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MainRouter = void 0;
 var AppRouter_1 = require("./common/AppRouter");
 var securityrouter_1 = require("./security/securityrouter");
 var proxyrouter_1 = require("./proxy/proxyrouter");
+var homeRouter_1 = require("./home/homeRouter");
 //root router for the API
 var MainRouter = /** @class */ (function (_super) {
     __extends(MainRouter, _super);
@@ -25,10 +27,8 @@ var MainRouter = /** @class */ (function (_super) {
     //adds the child routers to various paths to form the overall API. 
     MainRouter.prototype.setupRoutes = function () {
         this.addRouter('/security', new securityrouter_1.SecurityRouter());
-        this.addRouter('/projects', new ProjectsRouter());
-        this.addRouter('/movies', new MoviesRouter());
-        this.addRouter('/shows', new ShowsRouter());
-        this.addRouter('/omdb', new proxyrouter_1.ProxyRouter());
+        this.addRouter('/proxy', new proxyrouter_1.ProxyRouter()); //the original API route he gave us
+        this.addRouter('/imdb', new homeRouter_1.HomeRouter()); //the newer API he provided us
     };
     return MainRouter;
 }(AppRouter_1.AppRouter));

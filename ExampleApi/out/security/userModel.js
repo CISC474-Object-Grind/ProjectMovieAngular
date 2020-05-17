@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserModel = void 0;
 var bcrypt_1 = __importDefault(require("bcrypt"));
 //represents a user in the system
 var UserModel = /** @class */ (function () {
@@ -24,7 +25,7 @@ var UserModel = /** @class */ (function () {
         set: function (val) {
             this._password = UserModel.encryptString(val);
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     //compares unencrypted password to encrypted password

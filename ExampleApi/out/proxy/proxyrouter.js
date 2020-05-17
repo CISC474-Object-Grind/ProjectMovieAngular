@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProxyRouter = void 0;
 var AppRouter_1 = require("../common/AppRouter");
 var proxyController_1 = require("./proxyController");
 //This is just an example second router to show how additional routers can be added
