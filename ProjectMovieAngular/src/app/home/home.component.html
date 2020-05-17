@@ -1,45 +1,29 @@
 <h2>Our Top Picks This Week!</h2>
 <ngb-carousel>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
+	<ng-template *ngFor="let movie of homeMovies" ngbSlide>
+		<div  *ngFor="let m of movie.items" class="picsum-img-wrapper">
+			<!-- <img src={{m.titles[0].image}} alt={{m.titles[0].title}}> -->
+			<img src={{m.image}} alt={{m.title}}>
+		</div>
+		<!-- <div class="picsum-img-wrapper">
+			<img src={{m.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/wonderwoman.jpg" alt="wonderwoman">
+			<img src={{movie.image}} alt={{movie.title}}>
 		</div>
 		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/parasite.jpg" alt="aquaman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/jumanjiNextLevel.jpg" alt="jumanjiNextLevel">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/zombieland.jpg" alt="aquaman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
-		</div>
+			<img src={{movie.image}} alt={{movie.title}}>
+		</div> -->
 	</ng-template>
 </ngb-carousel>
+
+
+<!-- <h3> Recommended Shows</h3>
+<div *ngFor="let show of shows" class="row">
+	<div class="col-6 col-sm-4">
+		<p>Title: {{show.l}} <br> Rank: {{show.rank}}</p>
+	</div>
+	<div class="col-6 col-sm-4">
+		<img src={{show.i.imageUrl}} alt={{show.l}}>
+	</div>
+</div> -->
