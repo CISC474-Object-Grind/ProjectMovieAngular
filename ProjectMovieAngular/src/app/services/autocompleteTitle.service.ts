@@ -18,4 +18,5 @@ export class AutocompleteTitleService {
 	getShow(partialTitle: string): Observable<any> {
 		return this.http.get(this.path + partialTitle);
 	}
+
 }
