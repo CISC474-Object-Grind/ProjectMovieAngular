@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AutocompleteTitleService } from '../services/autocompleteTitle.service';
-import { OmdbServiceService } from '../services/omdbService.service';
-class ShowPage{
-	items: any[]=[];
-}
 
 @Component({
 	selector: 'app-shows',
@@ -11,38 +7,19 @@ class ShowPage{
 	styleUrls: ['./shows.component.css'],
 })
 export class ShowsComponent implements OnInit {
-	showsToGet = ["Breaking Bad", "Game Of Thrones", "Westworld", "Ozark", "The Office", 
-	"Better Call Saul", "The Walking Dead", "Homeland", "The Wire", "Prison Break",
-	"The Witcher", "Shameless"];
-	showsTopShows: ShowPage[] = [new ShowPage()];
-	
-	genres = ['Action', 'Adventure', 'Comedy', 'Crime', 'Drama', 'Fantasy',
-	 'Historical', 'Horror', 'Mystery', 'Romance', 'Science Fiction', 'Thriller'];
+	alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+	shows = [];
 
-	addShow(show:any){
-		const size = this.showsTopShows.length;
-		if(this.showsTopShows[size-1].items.length > 3){
-			const mp=new ShowPage();
-			mp.items.push(show);
-			this.showsTopShows.push(mp);
-		} else {
-			this.showsTopShows[size-1].items.push(show);
-		}
-	}
-	mobile: boolean;
-	constructor(private OmdbService: OmdbServiceService, private AutocompleteTitleService: AutocompleteTitleService) { 
-	
-	}
+	constructor(private AutocompleteService: AutocompleteTitleService) { }
 
 	ngOnInit(): void {
-		if (window.screen.width === 360) { // 768px portrait
-			this.mobile = true;
-		}
-		this.showsToGet.forEach(shows => {
-			this.OmdbService.getShow(shows).subscribe(res => {
-				// console.log(res);
-				this.addShow(res.titles[0])});
-		});
+		// this.alphabet.forEach(letter => {
+		// 	this.AutocompleteService.getShow(letter).subscribe(data => console.log(data));
+		// 	this.AutocompleteService.getShow(letter).subscribe(data => this.shows.push(data)
+		// 	)
+		// });
+		// console.log(this.shows)
 	}
 
 }
