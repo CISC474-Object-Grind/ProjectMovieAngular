@@ -8,7 +8,7 @@ export class ProxyController {
                 url: 'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/'+req.params.searchString,
                 headers: {
 				  'x-rapidapi-host': 'imdb-internet-movie-database-unofficial.p.rapidapi.com',
-                  'x-rapidapi-key': '4cb150e960msh1c6a8e1cccf054ap137887jsn3cbf9acb58bf' //change to your key
+                  'x-rapidapi-key': 'e97e484626msh64f79feff193ffap1dedc5jsn1974786af2c2' //change to your key
                 }   
             };
             request(options,function(error,response,result){
