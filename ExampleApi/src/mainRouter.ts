@@ -12,7 +12,7 @@ export class MainRouter extends AppRouter{
 
     //adds the child routers to various paths to form the overall API. 
     setupRoutes(): void {
-        this.addRouter('/security',new SecurityRouter());
+        // this.addRouter('/security',new SecurityRouter());
 		this.addRouter('/proxy', new ProxyRouter()); //the original API route he gave us
 		this.addRouter('/imdb', new HomeRouter());   //the newer API he provided us
     }
