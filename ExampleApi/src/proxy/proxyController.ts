@@ -8,7 +8,7 @@ export class ProxyController {
                 url: 'http://www.omdbapi.com/?i=tt3896198&apikey=ae98a62e'+req.params.searchString,
                 headers: {
 				  'x-rapidapi-host': 'http://www.omdbapi.com/?i=tt3896198&',
-                  'x-rapidapi-key': '3e0f061d8dmshd3a0baf222a5525p17a137jsn2e043a90b36b' //change to your key
+                  'x-rapidapi-key': '9aab60c8eemshfa9dd7986704514p12a5f2jsn1e039852edcd' //change to your key
                 }   
             };
             request(options,function(error,response,result){

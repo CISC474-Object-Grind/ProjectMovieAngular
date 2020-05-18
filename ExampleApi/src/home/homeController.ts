@@ -11,7 +11,7 @@ export class HomeController {
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
 				// 'x-rapidapi-key': 'd44c42e1c5msh2c86d382d3ce66fp175fbdjsn1c6180163297',
-				'x-rapidapi-key': '3e0f061d8dmshd3a0baf222a5525p17a137jsn2e043a90b36b',
+				'x-rapidapi-key': '9aab60c8eemshfa9dd7986704514p12a5f2jsn1e039852edcd',
 				useQueryString: true
 			}
 		};
@@ -29,7 +29,7 @@ export class HomeController {
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
 				// 'x-rapidapi-key': 'd44c42e1c5msh2c86d382d3ce66fp175fbdjsn1c6180163297',
-				'x-rapidapi-key': '3e0f061d8dmshd3a0baf222a5525p17a137jsn2e043a90b36b',
+				'x-rapidapi-key': '9aab60c8eemshfa9dd7986704514p12a5f2jsn1e039852edcd',
 				// 'x-rapidapi-key': '4cb150e960msh1c6a8e1cccf054ap137887jsn3cbf9acb58bf',
 				useQueryString: true
 			}
