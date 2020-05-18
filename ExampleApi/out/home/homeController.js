@@ -17,7 +17,7 @@ var HomeController = /** @class */ (function () {
             headers: {
                 'x-rapidapi-host': 'imdb8.p.rapidapi.com',
                 // 'x-rapidapi-key': 'd44c42e1c5msh2c86d382d3ce66fp175fbdjsn1c6180163297',
-                'x-rapidapi-key': '9aab60c8eemshfa9dd7986704514p12a5f2jsn1e039852edcd',
+                'x-rapidapi-key': '6e2b71cca6msh8ed431b60a3455ep19fa49jsn3c1f6960664d',
                 useQueryString: true
             }
         };
@@ -35,7 +35,7 @@ var HomeController = /** @class */ (function () {
             headers: {
                 'x-rapidapi-host': 'imdb8.p.rapidapi.com',
                 // 'x-rapidapi-key': 'd44c42e1c5msh2c86d382d3ce66fp175fbdjsn1c6180163297',
-                'x-rapidapi-key': '9aab60c8eemshfa9dd7986704514p12a5f2jsn1e039852edcd',
+                'x-rapidapi-key': '6e2b71cca6msh8ed431b60a3455ep19fa49jsn3c1f6960664d',
                 // 'x-rapidapi-key': '4cb150e960msh1c6a8e1cccf054ap137887jsn3cbf9acb58bf',
                 useQueryString: true
             }
