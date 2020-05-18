@@ -41,9 +41,9 @@ export class MoviesComponent implements OnInit {
 	addAction(movies:any){
 		const size = this.actionGenre.length;
 		if(this.actionGenre[size-1].items.length > 3){
-			const sp=new MoviePage();
-			sp.items.push(movies);
-			this.actionGenre.push(sp);
+			const mp=new MoviePage();
+			mp.items.push(movies);
+			this.actionGenre.push(mp);
 		} else {
 			this.actionGenre[size-1].items.push(movies);
 		}
@@ -51,9 +51,9 @@ export class MoviesComponent implements OnInit {
 	addAdventure(movies:any){
 		const size = this.adventureGenre.length;
 		if(this.adventureGenre[size-1].items.length > 3){
-			const sp=new MoviePage();
-			sp.items.push(movies);
-			this.adventureGenre.push(sp);
+			const mp=new MoviePage();
+			mp.items.push(movies);
+			this.adventureGenre.push(mp);
 		} else {
 			this.adventureGenre[size-1].items.push(movies);
 		}
@@ -61,9 +61,9 @@ export class MoviesComponent implements OnInit {
 	addFantasy(movies:any){
 		const size = this.fantasyGenre.length;
 		if(this.fantasyGenre[size-1].items.length > 3){
-			const sp=new MoviePage();
-			sp.items.push(movies);
-			this.fantasyGenre.push(sp);
+			const mp=new MoviePage();
+			mp.items.push(movies);
+			this.fantasyGenre.push(mp);
 		} else {
 			this.fantasyGenre[size-1].items.push(movies);
 		}
@@ -71,9 +71,9 @@ export class MoviesComponent implements OnInit {
 	addscifi(movies:any){
 		const size = this.scifiGenre.length;
 		if(this.scifiGenre[size-1].items.length > 3){
-			const sp=new MoviePage();
-			sp.items.push(movies);
-			this.scifiGenre.push(sp);
+			const mp=new MoviePage();
+			mp.items.push(movies);
+			this.scifiGenre.push(mp);
 		} else {
 			this.scifiGenre[size-1].items.push(movies);
 		}
@@ -81,9 +81,9 @@ export class MoviesComponent implements OnInit {
 	adddrama(movies:any){
 		const size = this.dramaGenre.length;
 		if(this.dramaGenre[size-1].items.length > 3){
-			const sp=new MoviePage();
-			sp.items.push(movies);
-			this.dramaGenre.push(sp);
+			const mp=new MoviePage();
+			mp.items.push(movies);
+			this.dramaGenre.push(mp);
 		} else {
 			this.dramaGenre[size-1].items.push(movies);
 		}
@@ -103,33 +103,33 @@ export class MoviesComponent implements OnInit {
 			this.mobile = true;
 		}
 		this.moviesToGet.forEach(movies => {
-			this.OmdbService.getShow(movies).subscribe(res => {
+			this.OmdbService.getMovie(movies).subscribe(res => {
 				// console.log(res);
 				this.addMovie(res.titles[0])});
 		});
 		
 		this.actionMoviesToGet.forEach(movies => {
-			this.AutocompleteTitleService.getShow(movies).subscribe(data => {
+			this.AutocompleteTitleService.getMovie(movies).subscribe(data => {
 				console.log(data);
 				this.addAction(data.d[0])});
 		});
 		this.adventureMoviesToGet.forEach(movies => {
-			this.AutocompleteTitleService.getShow(movies).subscribe(data => {
+			this.AutocompleteTitleService.getMovie(movies).subscribe(data => {
 				console.log(data);
 				this.addAdventure(data.d[0])});
 		});
 		this.fantasyMoviesToGet.forEach(movies => {
-			this.AutocompleteTitleService.getShow(movies).subscribe(data => {
+			this.AutocompleteTitleService.getMovie(movies).subscribe(data => {
 				console.log(data);
 				this.addFantasy(data.d[0])});
 		});
 		this.scifiMoviesToGet.forEach(movies => {
-			this.AutocompleteTitleService.getShow(movies).subscribe(data => {
+			this.AutocompleteTitleService.getMovie(movies).subscribe(data => {
 				console.log(data);
 				this.addscifi(data.d[0])});
 		});
 		this.dramaMoviesToGet.forEach(movies => {
-			this.AutocompleteTitleService.getShow(movies).subscribe(data => {
+			this.AutocompleteTitleService.getMovie(movies).subscribe(data => {
 				console.log(data);
 				this.adddrama(data.d[0])});
 		});

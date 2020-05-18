@@ -1,9 +1,6 @@
 h2 {
 	text-align: center;
 }
-/* h3{
-	text-align: center;
-} */
 img{
 	height: 240px;
 	margin: auto;
@@ -22,9 +19,9 @@ ngb-carousel{
 }
 
 .card-img-top {
-	min-height: 200px;
+	min-height: 300px;
 	max-width: 200px;
-	max-height: 250px;
+	max-height: 350px;
 }
 .card {
 	background-color: #000000;
@@ -43,7 +40,7 @@ ngb-carousel{
 }
 
 .showDescription {
-	text-align: center;
+	text-align: left;
 }
 
 .row {
@@ -54,4 +51,3 @@ ngb-carousel{
 .col-md-6 {
 	flex: 50% !important; 
 }
-
