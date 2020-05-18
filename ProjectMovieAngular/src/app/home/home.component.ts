@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 	}
 
 	showsToGet = ["the office", "outer banks","upload","rick and morty", 
-	"grey's anatomy","legacies", "new girl", "west world","gossip girl","lucifer"]
+	"grey's anatomy","legacies", "new girl","gossip girl","lucifer"]
 	
 	mobile: boolean;
 
@@ -70,8 +70,6 @@ export class HomeComponent implements OnInit {
 			this.AutocompleteTitleService.getShow(show).subscribe(data => {
 				console.log(data);
 				this.addShow(data.d[0])});
-			// this.AutocompleteTitleService.getShow(show).subscribe(data =>
-			// 	this.shows.push(data.d[0]));
 		});
 		console.log(this.recommendedShows)
 	}
