@@ -1,59 +1,87 @@
-<h2>Shows to Watch</h2>
+<h2>Top Shows To Watch This Week!</h2>
 <ngb-carousel>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/wonderwoman.jpg" alt="wonderwoman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/aquaman.jpg" alt="aquaman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/jumanjiNextLevel.jpg" alt="jumanjiNextLevel">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/TATBILB.jpg" alt="TATBILB">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/frozen2.jpg" alt="frozen2">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/aquaman.jpg" alt="aquaman">
-		</div>
-		<div class="picsum-img-wrapper">
-			<img src="../assets/Images/endgame.jpg" alt="endgame">
+	<ng-template *ngFor="let movie of showsTopShows" ngbSlide>
+		<div *ngFor="let m of movie.items" class="picsum-img-wrapper">
+			<!-- <img src={{m.titles[0].image}} alt={{m.titles[0].title}}> -->
+			<img src={{m.image}} alt={{m.title}}>
 		</div>
 	</ng-template>
 </ngb-carousel>
+<br>
 <br><br>
-<h2>All Shows </h2>
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-	<ngb-panel title="{{item}}" *ngFor="let item of alphabet">
-	  <ng-template ngbPanelContent>
-		Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-		aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-		sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-		craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-		occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-		labore sustainable VHS.
-	  </ng-template>
-	</ngb-panel>
-  </ngb-accordion>
+<h2>Shows By Genre </h2>
+<br>
+<h3>Action</h3>
+<div *ngFor="let show of actionGenre" class="card-deck justify-content-center">
+	<div *ngFor="let s of show.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{s.i.imageUrl}} alt={{s.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{s.l}}</h5>
+			<p class="card-text">Cast: {{s.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Adventure</h3>
+<div *ngFor="let show of adventureGenre" class="card-deck justify-content-center">
+	<div *ngFor="let s of show.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{s.i.imageUrl}} alt={{s.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{s.l}}</h5>
+			<p class="card-text">Cast: {{s.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Fantasy</h3>
+<div *ngFor="let show of fantasyGenre" class="card-deck justify-content-center">
+	<div *ngFor="let s of show.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{s.i.imageUrl}} alt={{s.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{s.l}}</h5>
+			<p class="card-text">Cast: {{s.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Sci-Fi</h3>
+<div *ngFor="let show of scifiGenre" class="card-deck justify-content-center">
+	<div *ngFor="let s of show.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{s.i.imageUrl}} alt={{s.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{s.l}}</h5>
+			<p class="card-text">Cast: {{s.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Drama</h3>
+<div *ngFor="let show of dramaGenre" class="card-deck justify-content-center">
+	<div *ngFor="let s of show.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{s.i.imageUrl}} alt={{s.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{s.l}}</h5>
+			<p class="card-text">Cast: {{s.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
