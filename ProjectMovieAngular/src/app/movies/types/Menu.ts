@@ -3,4 +3,4 @@ export type Menu = {
     iconClass: string, 
     active: boolean,
     submenu: { name: string, url: string }[]
-  }
+  } 
