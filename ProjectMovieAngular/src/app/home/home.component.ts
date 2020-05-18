@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 		}
 	}
 
-	showsToGet = ["the office", "outer banks","upload","rick and morty", 
+	showsToGet = ["breaking bad", "outer banks","upload","rick and morty", 
 	"grey's anatomy","legacies", "new girl", "west world","gossip girl","lucifer"]
 	
 	mobile: boolean;
