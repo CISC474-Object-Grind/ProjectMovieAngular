@@ -24,9 +24,9 @@ export class MoviesComponent implements OnInit {
 	moviesTopMovies: MoviePage[] = [new MoviePage()];
 	actionGenre: MoviePage[] = [new MoviePage()];
 	adventureGenre: MoviePage[] = [new MoviePage()];
-	fantasyGenre: MoviePage[] = [new MoviePage];
-	scifiGenre: MoviePage[] = [new MoviePage];
-	dramaGenre: MoviePage[] = [new MoviePage];
+	fantasyGenre: MoviePage[] = [new MoviePage()];
+	scifiGenre: MoviePage[] = [new MoviePage()];
+	dramaGenre: MoviePage[] = [new MoviePage()];
 	
 	addMovie(movies:any){
 		const size = this.moviesTopMovies.length;
