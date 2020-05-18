@@ -23,7 +23,7 @@ var HomeRouter = /** @class */ (function (_super) {
     }
     //sets up the routes within this module shows an example of a route that requires authorization, and one that does not
     HomeRouter.prototype.setupRoutes = function () {
-        // this.expressRouter.get('/:searchString', HomeRouter.homeController.getFromOtherApi);
+        this.expressRouter.get('/:searchString', HomeRouter.homeController.getFromOtherApi);
         this.expressRouter.get('/:find', HomeRouter.homeController.findShow);
     };
     HomeRouter.homeController = new homeController_1.HomeController();
