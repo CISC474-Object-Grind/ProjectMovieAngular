@@ -17,9 +17,9 @@ class MovieGenre{
 })
 
 export class MoviesComponent implements OnInit {
-	moviesToGet = ["Bloodshot", "Birds of Prey: And the Fantabulous Emancipation of One Harley Quinn", "Inception", "Moonlight", "Boyhood", 
-	"The Social Network", "Jaws", "The Goonies", "Back to the Future", "The Wizard of Oz",
-	"The Princess Bride", "The Dark Crystal", "The Martian", "Arrival", "Avatar"];
+	moviesToGet = ["bloodshot", "the avengers", "inception", "twilight", "boyhood", 
+	"the social network", "jaws", "the goonies", "back to the future", "the wizard of oz",
+	"the princess bride", "the dark crystal", "the martian", "arrival", "avatar"];
 
 	moviesTopMovies: MoviePage[] = [new MoviePage()];
 	actionGenre: MoviePage[] = [new MoviePage()];
@@ -88,11 +88,11 @@ export class MoviesComponent implements OnInit {
 			this.dramaGenre[size-1].items.push(movies);
 		}
 	}
-	actionMoviesToGet = ["Birds of Prey: And the Fantabulous Emancipation of One Harley Quinn", "Bloodshot","Inception"]
-	adventureMoviesToGet = ["Jaws", "The Goonies","Back to the Future"]
-	fantasyMoviesToGet = ["The Wizard of Oz", "The Princess Bride","The Dark Crystal"]
-	scifiMoviesToGet = ["Avatar", "Arrival","The Martian"]
-	dramaMoviesToGet = ["Moonlight", "Boyhood","The Social Network"]
+	actionMoviesToGet = ["birds of rey: and the fantabulous emancipation of one harley quinn", "inception"]
+	adventureMoviesToGet = ["the goonies","back to the future"]
+	fantasyMoviesToGet = ["the princess bride","the dark crystal"]
+	scifiMoviesToGet = [ "arrival","the martian"]
+	dramaMoviesToGet = ["boyhood","the social network"]
 	mobile: boolean;
 	constructor(private OmdbService: OmdbServiceService, private AutocompleteTitleService: AutocompleteTitleService) { 
 	

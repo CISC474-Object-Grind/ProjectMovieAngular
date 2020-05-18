@@ -88,11 +88,11 @@ export class ShowsComponent implements OnInit {
 			this.dramaGenre[size-1].items.push(show);
 		}
 	}
-	actionShowsToGet = ["grimm", "breaking bad","arrow"]
-	adventureShowsToGet = ["vikings", "the mandalorian","the witcher"]
-	fantasyShowsToGet = ["game of thrones", "supernatural","stranger things"]
-	scifiShowsToGet = ["westworld", "dark","black mirror"]
-	dramaShowsToGet = ["peaky blinders", "doctor who","ozark"]
+	actionShowsToGet = ["breaking bad","arrow"]
+	adventureShowsToGet = ["the mandalorian","the witcher"]
+	fantasyShowsToGet = ["game of thrones","stranger things"]
+	scifiShowsToGet = ["westworld", "black mirror"]
+	dramaShowsToGet = ["peaky blinders","ozark"]
 	mobile: boolean;
 	constructor(private OmdbService: OmdbServiceService, private AutocompleteTitleService: AutocompleteTitleService) { 
 	
