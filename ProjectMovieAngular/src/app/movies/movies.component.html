@@ -1,11 +1,87 @@
-<p>movies works!</p>
-
-
-<h2>All Moveis </h2>
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-	<ngb-panel title="{{item}}" *ngFor="let item of alphabet">
-	  <ng-template ngbPanelContent>
-		if statement saying if the first letter matches the alphabet, display the movie here
-	  </ng-template>
-	</ngb-panel>
-  </ngb-accordion>
+<h2>Top Shows To Watch This Week!</h2>
+<ngb-carousel>
+	<ng-template *ngFor="let movie of moviesTopMovies" ngbSlide>
+		<div *ngFor="let m of movie.items" class="picsum-img-wrapper">
+			<!-- <img src={{m.titles[0].image}} alt={{m.titles[0].title}}> -->
+			<img src={{m.image}} alt={{m.title}}>
+		</div>
+	</ng-template>
+</ngb-carousel>
+<br>
+<br><br>
+<h2>Movies By Genre </h2>
+<br>
+<h3>Action</h3>
+<div *ngFor="let movie of actionGenre" class="card-deck justify-content-center">
+	<div *ngFor="let m of movie.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{m.i.imageUrl}} alt={{m.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{m.l}}</h5>
+			<p class="card-text">Cast: {{m.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Adventure</h3>
+<div *ngFor="let movie of adventureGenre" class="card-deck justify-content-center">
+	<div *ngFor="let m of movie.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{m.i.imageUrl}} alt={{m.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{m.l}}</h5>
+			<p class="card-text">Cast: {{m.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Fantasy</h3>
+<div *ngFor="let movie of fantasyGenre" class="card-deck justify-content-center">
+	<div *ngFor="let m of movie.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{m.i.imageUrl}} alt={{m.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{m.l}}</h5>
+			<p class="card-text">Cast: {{m.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Sci-Fi</h3>
+<div *ngFor="let movie of scifiGenre" class="card-deck justify-content-center">
+	<div *ngFor="let m of movie.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{m.i.imageUrl}} alt={{m.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{m.l}}</h5>
+			<p class="card-text">Cast: {{m.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
+<br>
+<h3>Drama</h3>
+<div *ngFor="let movie of dramaGenre" class="card-deck justify-content-center">
+	<div *ngFor="let m of movie.items" class="card mb-4">
+		<img class="card-img-top img-fluid" src={{m.i.imageUrl}} alt={{m.l}}>
+		<div class="card-body">
+			<h5 class="card-title">{{m.l}}</h5>
+			<p class="card-text">Cast: {{m.s}}</p>
+		</div>
+		<div class="card-footer">
+			<small class="text-muted">Last updated Just Now</small>
+		</div>
+	</div>
+	<br><br>
+</div>
